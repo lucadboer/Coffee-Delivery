@@ -1,7 +1,7 @@
 import cup from '../../assets/Cup.svg'
 import items from '../../assets/items.svg'
-import { CoffeesContainer, IntroContainer } from './styles'
-import coffee1 from '../../assets/coffees/Image.svg'
+import { Coffees } from './components/Coffees/Coffees'
+import { CoffeesContainer, Containers, IntroContainer } from './styles'
 
 export function Home() {
   return (
@@ -23,20 +23,19 @@ export function Home() {
       <CoffeesContainer>
         <h2>Nossos cafés</h2>
 
-        <div>
-          <div>
-            <img src={coffee1} />
-            <h4>Tradicional</h4>
-            <h3>Expresso Adicional</h3>
-            <p>O tradicional café feito com água quente e grãos moidos</p>
-            <div>
-              <span>
-                RS
-                <span>9,90</span>
-              </span>
-            </div>
-          </div>
-        </div>
+        <Containers>
+          <Coffees />
+          <Coffees />
+          <Coffees />
+          <Coffees />
+          <Coffees />
+          <Coffees />
+          <Coffees />
+          <Coffees />
+          <Coffees />
+          <Coffees />
+          <Coffees />
+        </Containers>
       </CoffeesContainer>
     </div>
   )
