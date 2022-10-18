@@ -6,7 +6,9 @@ import { HeaderContainer } from './styles'
 export function Header() {
   return (
     <HeaderContainer>
-      <img src={logo} alt="Logomarca Coffee Delivery" />
+      <a href="/">
+        <img src={logo} alt="Logomarca Coffee Delivery" />
+      </a>
       <nav>
         <span>
           {' '}

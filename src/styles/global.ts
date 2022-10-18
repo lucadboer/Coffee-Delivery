@@ -23,4 +23,12 @@ body, input, textarea, button {
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
 }
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 `

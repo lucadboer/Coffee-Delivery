@@ -138,12 +138,4 @@ export const FooterCard = styled.div`
       }
     }
   }
-
-  input[type='number']::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-  input[type='number'] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-  }
 `
