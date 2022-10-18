@@ -112,6 +112,7 @@ export const PaymentContainer = styled.div`
   padding: 2.5rem;
   background-color: ${(props) => props.theme['base-card']};
   border-radius: 8px;
+  margin-bottom: 8rem;
 
   h3 {
     display: flex;
@@ -143,4 +144,30 @@ export const PaymentsMethods = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background-color: ${(props) => props.theme['base-button']};
+      color: ${(props) => props.theme['base-text']};
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: ${(props) => props.theme['base-hover']};
+      }
+
+      svg {
+        color: ${(props) => props.theme.purple};
+      }
+    }
+  }
 `

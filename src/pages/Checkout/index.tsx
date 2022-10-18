@@ -54,7 +54,7 @@ export function Checkout() {
             </span>
 
             <PaymentsMethods>
-              <ToggleGroup.Root type="single" defaultValue="credit">
+              <ToggleGroup.Root type="single">
                 <ToggleGroup.Item value="credit">
                   <CreditCard size={16} /> Cartão de Crédito
                 </ToggleGroup.Item>
