@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 0 10rem;
   margin: 2rem 0;
   font-family: ${(props) => props.theme.text};
 
@@ -34,6 +35,10 @@ export const HeaderContainer = styled.div`
       background-color: ${(props) => props.theme['yellow-light']};
       color: ${(props) => props.theme['yellow-dark']};
       border-radius: 8px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 `

@@ -11,6 +11,7 @@ import {
   PaymentsMethods,
   RuaForm,
 } from './styles'
+import { CoffeeSelected } from './Components/CoffeesSelected'
 
 export function Checkout() {
   return (
@@ -25,22 +26,23 @@ export function Checkout() {
               </h3>
               <span>Informe o endereço onde deseja receber seu pedido</span>
             </HeaderAddress>
-            <form>
-              <CEPForm type="number" placeholder="CEP" required />
+            <form id="address" action="/sucess">
+              <CEPForm type="number" placeholder="CEP" /* required */ />
               <RuaForm
                 type="text"
                 placeholder="Rua"
                 autoComplete="true"
-                required
+                /* required
+                 */
               />
               <FormNumberComplement>
-                <input type="text" placeholder="Número" required />
+                <input type="text" placeholder="Número" /* required */ />
                 <input type="text" placeholder="Complemento" />
               </FormNumberComplement>
               <FormAddressCityState>
-                <input type="text" placeholder="Bairro" required />
-                <input type="text" placeholder="Cidade" required />
-                <input type="text" placeholder="UF" required />
+                <input type="text" placeholder="Bairro" /* required */ />
+                <input type="text" placeholder="Cidade" /* required */ />
+                <input type="text" placeholder="UF" /* required */ />
               </FormAddressCityState>
             </form>
           </AddressContainer>
@@ -71,6 +73,10 @@ export function Checkout() {
 
         <div>
           <h2>Cafés selecionados</h2>
+
+          <div>
+            <CoffeeSelected />
+          </div>
         </div>
       </CheckoutContainer>
     </div>
