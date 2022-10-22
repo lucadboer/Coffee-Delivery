@@ -11,9 +11,47 @@ import {
   PaymentsMethods,
   RuaForm,
 } from './styles'
+
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as zod from 'zod'
+
 import { CoffeeSelected } from './Components/CoffeesSelected'
+import { useContext } from 'react'
+import { OrderAddressContext } from '../../context/OrderAddressContext'
+
+const newOrderFormValidationSchemma = zod.object({
+  cep: zod.string().min(8).max(10),
+  road: zod.string().min(3).max(80),
+  number: zod.string().min(1).max(6),
+  Complement: zod.string(),
+  district: zod.string().min(3).max(20),
+  city: zod.string().min(3).max(15),
+  state: zod.string().min(2).max(30),
+})
 
 export function Checkout() {
+  const { orderConfirmed } = useContext(OrderAddressContext)
+
+  const { register, handleSubmit } = useForm({
+    resolver: zodResolver(newOrderFormValidationSchemma),
+    defaultValues: {
+      cep: '',
+      road: '',
+      number: '',
+      Complement: '',
+      district: '',
+      city: '',
+      state: '',
+    },
+  })
+
+  type newOrderConfirmed = zod.infer<typeof newOrderFormValidationSchemma>
+
+  function handleConfirmedOrder(data: newOrderConfirmed) {
+    orderConfirmed(data)
+  }
+
   return (
     <div>
       <CheckoutContainer>
@@ -26,23 +64,26 @@ export function Checkout() {
               </h3>
               <span>Informe o endereço onde deseja receber seu pedido</span>
             </HeaderAddress>
-            <form id="address" action="/sucess">
-              <CEPForm type="number" placeholder="CEP" /* required */ />
+            <form
+              id="address"
+              onSubmit={handleSubmit(handleConfirmedOrder)}
+              action="/sucess"
+            >
+              <CEPForm placeholder="CEP" min={8} {...register('cep')} />
               <RuaForm
-                type="text"
                 placeholder="Rua"
                 autoComplete="true"
-                /* required
-                 */
+                {...register('road')}
               />
               <FormNumberComplement>
-                <input type="text" placeholder="Número" /* required */ />
-                <input type="text" placeholder="Complemento" />
+                <input placeholder="Número" {...register('number')} />
+                <input placeholder="Complemento" {...register('Complement')} />
               </FormNumberComplement>
+
               <FormAddressCityState>
-                <input type="text" placeholder="Bairro" /* required */ />
-                <input type="text" placeholder="Cidade" /* required */ />
-                <input type="text" placeholder="UF" /* required */ />
+                <input placeholder="Bairro" {...register('district')} />
+                <input placeholder="Cidade" {...register('city')} />
+                <input placeholder="UF" {...register('state')} />
               </FormAddressCityState>
             </form>
           </AddressContainer>
@@ -57,7 +98,7 @@ export function Checkout() {
 
             <PaymentsMethods>
               <ToggleGroup.Root type="single">
-                <ToggleGroup.Item value="credit">
+                <ToggleGroup.Item value="credit" /* {...register('payment')} */>
                   <CreditCard size={16} /> Cartão de Crédito
                 </ToggleGroup.Item>
                 <ToggleGroup.Item value="debbit">

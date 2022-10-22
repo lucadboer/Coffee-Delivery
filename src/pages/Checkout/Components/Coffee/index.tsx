@@ -1,12 +1,11 @@
 import { Trash } from 'phosphor-react'
 import { SetQuantityCoffee } from '../../../../components/SetQuantityCoffee'
-import coffee from '../../../../assets/coffees/Image.svg'
 import { CoffeeContainer, CoffeeStatus, DeleteCoffee, Price } from './styles'
 
 export function Coffee() {
   return (
     <CoffeeContainer>
-      <img src={coffee} alt="" />
+      <img src={`/coffees/Latte.svg`} alt="" />
       <main>
         <h3>Expresso Tradicional</h3>
         <CoffeeStatus>

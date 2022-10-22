@@ -33,6 +33,7 @@ export const IntroContainer = styled(Container)`
     }
 
     img {
+      width: 36rem;
       margin-top: 3.5rem;
     }
   }

@@ -5,7 +5,6 @@ export const CoffeeCard = styled.div`
   width: 16rem;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: center;
   padding: 1.25rem;
   background-color: ${(props) => props.theme['base-card']};

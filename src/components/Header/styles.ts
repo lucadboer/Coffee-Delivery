@@ -31,10 +31,26 @@ export const HeaderContainer = styled.div`
     a {
       display: flex;
       align-items: center;
+      position: relative;
       padding: 0.5rem;
       background-color: ${(props) => props.theme['yellow-light']};
       color: ${(props) => props.theme['yellow-dark']};
       border-radius: 8px;
+
+      span {
+        position: absolute;
+        width: 20px;
+        height: 1.25rem;
+        top: -8px;
+        right: -8px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding-right: 14px;
+        background-color: ${(props) => props.theme['yellow-dark']};
+        color: ${(props) => props.theme.white};
+        border-radius: 50%;
+      }
 
       &:hover {
         transform: scale(1.1);

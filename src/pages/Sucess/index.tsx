@@ -1,5 +1,7 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContext, useEffect } from 'react'
 import delivery from '../../assets/Delivery.svg'
+import { OrderAddressContext } from '../../context/OrderAddressContext'
 import {
   OrderAddressContainer,
   OrderInformationContainer,
@@ -9,6 +11,12 @@ import {
 } from './styles'
 
 export function Sucess() {
+  const { orderConfirmed } = useContext(OrderAddressContext)
+
+  useEffect(() => {
+    orderConfirmed()
+  }, [])
+
   return (
     <div>
       <SucessContainer>
