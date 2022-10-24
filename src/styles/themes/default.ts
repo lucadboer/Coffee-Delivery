@@ -23,6 +23,7 @@ export const defaultTheme = {
   'base-card': '#F3F2F2',
 
   background: '#FAFAFA',
+  'background-header': '#fafafae8',
   white: '#FFF',
   black: '#000000',
 

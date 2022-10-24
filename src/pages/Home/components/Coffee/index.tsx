@@ -1,41 +1,63 @@
 import { ShoppingCartSimple } from 'phosphor-react'
-import { CoffeeCard, FooterCard } from './styles'
+import { CoffeeCardContainer, FooterCard } from './styles'
 import { SetQuantityCoffee } from '../../../../components/SetQuantityCoffee'
-import { useContext } from 'react'
-import { CartContext, CoffeeProps } from '../../../../context/CartContext'
+import { formatMoney } from '../../../../utils/formatMoney'
+import { useCart } from '../../../../hooks/useCart'
+// import { CartContext, Coffee } from '../../../../context/CartContext'
 
-export function Coffee(props: CoffeeProps) {
-  const { changeQuantityCart, addNewCoffeeOnCart } = useContext(CartContext)
+export interface Coffee {
+  id: number
+  photo: string
+  categories: string[]
+  name: string
+  subtitle: string
+  price: number
+  quantity: number
+}
 
-  function handleAddNewCoffeeOnCart() {
+interface CoffeeProps {
+  coffee: Coffee
+}
+
+export function CoffeeCard({ coffee }: CoffeeProps) {
+  const formattedPrice = formatMoney(coffee.price)
+
+  const { addNewCoffeeToCart } = useCart()
+
+  function handleAddNewCoffeeToCart() {
     event?.preventDefault()
-    changeQuantityCart(props.id)
-    addNewCoffeeOnCart(props.id)
+    const coffeeToAdd = {
+      ...coffee,
+      quantity: 1,
+    }
+    addNewCoffeeToCart(coffeeToAdd)
   }
 
   return (
-    <CoffeeCard>
-      <img src={`/coffees/${props.imgUrl}.svg`} alt="" />
+    <CoffeeCardContainer>
+      <img src={`/coffees/${coffee.photo}.svg`} />
       <ul>
-        {props.categories.map((categorie) => {
-          return <li key={categorie}>{categorie}</li>
+        {coffee.categories.map((categorie) => {
+          return (
+            <li key={`${coffee.categories}${coffee.photo}`}>{categorie}</li>
+          )
         })}
       </ul>
-      <h3>{props.name}</h3>
-      <p>{props.subtitle}</p>
+      <h3>{coffee.name}</h3>
+      <p>{coffee.subtitle}</p>
       <FooterCard>
         <span>
           R$
-          <span>{props.price}0</span>
+          <span>{formattedPrice}</span>
         </span>
         <form>
           <SetQuantityCoffee />
 
-          <button type="submit" onClick={handleAddNewCoffeeOnCart}>
+          <button type="submit" onClick={handleAddNewCoffeeToCart}>
             <ShoppingCartSimple size={20} weight="fill" />
           </button>
         </form>
       </FooterCard>
-    </CoffeeCard>
+    </CoffeeCardContainer>
   )
 }

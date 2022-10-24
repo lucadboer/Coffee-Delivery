@@ -43,6 +43,7 @@ export const IntroContainer = styled(Container)`
 `
 
 export const CoffeesContainer = styled(Container)`
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem 10rem;

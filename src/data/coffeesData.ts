@@ -1,7 +1,7 @@
 export const coffees = [
   {
     id: 1,
-    imgUrl: 'TradicionalCoffee',
+    photo: 'TradicionalCoffee',
     categories: ['Tradicional'],
     name: 'Expresso Tradicional',
     subtitle: 'O tradicional café feito com água quente e grãos moídos',
@@ -10,7 +10,7 @@ export const coffees = [
   },
   {
     id: 2,
-    imgUrl: 'AmericanCoffee',
+    photo: 'AmericanCoffee',
     categories: ['Tradicional'],
     name: 'Expresso Americano',
     subtitle: 'Expresso diluído, menos intenso que o tradicional',
@@ -19,7 +19,7 @@ export const coffees = [
   },
   {
     id: 3,
-    imgUrl: 'CreamyCoffee',
+    photo: 'CreamyCoffee',
     categories: ['Tradicional'],
     name: 'Expresso Cremoso',
     subtitle: 'Café expresso tradicional com espuma cremosa',
@@ -28,7 +28,7 @@ export const coffees = [
   },
   {
     id: 4,
-    imgUrl: 'ColdCoffee',
+    photo: 'ColdCoffee',
     categories: ['Tradicional', 'Gelado'],
     name: 'Expresso Gelado',
     subtitle: 'Bebida preparada com café expresso e cubos de gelo',
@@ -37,7 +37,7 @@ export const coffees = [
   },
   {
     id: 5,
-    imgUrl: 'CoffeeWithMilk',
+    photo: 'CoffeeWithMilk',
     categories: ['Tradicional', 'Com leite'],
     name: 'Café com Leite',
     subtitle: 'Meio a meio de expresso tradicional com leite vaporizado',
@@ -46,7 +46,7 @@ export const coffees = [
   },
   {
     id: 6,
-    imgUrl: 'Latte',
+    photo: 'Latte',
     categories: ['Tradicional', 'Com leite'],
     name: 'Latte',
     subtitle: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -55,7 +55,7 @@ export const coffees = [
   },
   {
     id: 7,
-    imgUrl: 'Capuccino',
+    photo: 'Capuccino',
     categories: ['Tradicional', 'Com leite'],
     name: 'Capuccino',
     subtitle: 'Bebida com canela feita de doses iguais de café, leite e espuma',
@@ -64,7 +64,7 @@ export const coffees = [
   },
   {
     id: 8,
-    imgUrl: 'Macchiato',
+    photo: 'Macchiato',
     categories: ['Tradicional', 'Com leite'],
     name: 'Macchiato',
     subtitle: 'Café expresso misturado com um pouco de leite quente e espuma',
@@ -73,7 +73,7 @@ export const coffees = [
   },
   {
     id: 9,
-    imgUrl: 'Mocaccino',
+    photo: 'Mocaccino',
     categories: ['Tradicional', 'Com leite'],
     name: 'Mocaccino',
     subtitle: 'Café expresso com calda de chocolate, pouco leite e espuma',
@@ -82,7 +82,7 @@ export const coffees = [
   },
   {
     id: 10,
-    imgUrl: 'HotChocolate',
+    photo: 'HotChocolate',
     categories: ['Especial', 'Com leite'],
     name: 'Chocolate Quente',
     subtitle: 'Bebida feita com chocolate dissolvido no leite quente e café',
@@ -91,7 +91,7 @@ export const coffees = [
   },
   {
     id: 11,
-    imgUrl: 'Cuban',
+    photo: 'Cuban',
     categories: ['Especial', 'Alcoólico', 'Gelado'],
     name: 'Cubano',
     subtitle: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -100,7 +100,7 @@ export const coffees = [
   },
   {
     id: 12,
-    imgUrl: 'Havaian',
+    photo: 'Havaian',
     categories: ['Especial'],
     name: 'Havaiano',
     subtitle: 'Bebida adocicada preparada com café e leite de coco',
@@ -109,7 +109,7 @@ export const coffees = [
   },
   {
     id: 13,
-    imgUrl: 'Arab',
+    photo: 'Arab',
     categories: ['Especial'],
     name: 'Árabe',
     subtitle: 'Bebida preparada com grãos de café árabe e especiarias',
@@ -118,7 +118,7 @@ export const coffees = [
   },
   {
     id: 14,
-    imgUrl: 'Irland',
+    photo: 'Irland',
     categories: ['Especial', 'Alcoólico'],
     name: 'Irlandês',
     subtitle: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',

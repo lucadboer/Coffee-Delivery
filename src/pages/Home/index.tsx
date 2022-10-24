@@ -2,9 +2,11 @@ import cup from '../../assets/Cup.svg'
 import items from '../../assets/items.svg'
 import { CoffeesContainer, Containers, IntroContainer } from './styles'
 import { coffees } from '../../data/coffeesData'
-import { Coffee } from './components/Coffee'
+import { CoffeeCard } from './components/Coffee'
+import { useCart } from '../../hooks/useCart'
 
 export function Home() {
+  const { cartItems } = useCart()
   return (
     <div>
       <IntroContainer>
@@ -26,18 +28,7 @@ export function Home() {
 
         <Containers>
           {coffees.map((coffee) => {
-            return (
-              <Coffee
-                key={coffee.id}
-                id={coffee.id}
-                imgUrl={coffee.imgUrl}
-                name={coffee.name}
-                categories={coffee.categories}
-                price={coffee.price}
-                quantity={coffee.quantity}
-                subtitle={coffee.subtitle}
-              />
-            )
+            return <CoffeeCard key={coffee.id} coffee={coffee} />
           })}
         </Containers>
       </CoffeesContainer>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CoffeeCard = styled.div`
+export const CoffeeCardContainer = styled.div`
   position: relative;
   width: 16rem;
   display: flex;
