@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const CoffeeContainer = styled.div`
+  width: max-content;
   display: flex;
   border-bottom: 1px solid ${(props) => props.theme['base-button']};
   padding: 2rem 0;
@@ -12,10 +13,10 @@ export const CoffeeContainer = styled.div`
   main {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 0.5rem;
 
     h3 {
+      margin-left: 1.5rem;
       font-family: 'Roboto', sans-serif;
       font-size: 1rem;
       font-weight: 400;
@@ -31,6 +32,8 @@ export const CoffeeContainer = styled.div`
 
 export const CoffeeStatus = styled.div`
   display: flex;
+  flex: 1;
+  width: 100%;
 `
 
 export const DeleteCoffee = styled.button`

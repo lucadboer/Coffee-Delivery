@@ -17,11 +17,17 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
 import { CoffeeSelected } from './Components/CoffeesSelected'
-import { useContext } from 'react'
-import { OrderAddressContext } from '../../context/OrderAddressContext'
+
+interface ErrorsTypes {
+  errors: {
+    [key: string]: {
+      message: string
+    }
+  }
+}
 
 const newOrderFormValidationSchemma = zod.object({
-  cep: zod.string().min(8).max(10),
+  cep: zod.string().min(8, 'Informe o CEP').max(10),
   road: zod.string().min(3).max(80),
   number: zod.string().min(1).max(6),
   Complement: zod.string(),
@@ -31,9 +37,7 @@ const newOrderFormValidationSchemma = zod.object({
 })
 
 export function Checkout() {
-  const { orderConfirmed } = useContext(OrderAddressContext)
-
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     resolver: zodResolver(newOrderFormValidationSchemma),
     defaultValues: {
       cep: '',
@@ -46,10 +50,14 @@ export function Checkout() {
     },
   })
 
+  const { errors } = formState as unknown as ErrorsTypes
+
   type newOrderConfirmed = zod.infer<typeof newOrderFormValidationSchemma>
 
   function handleConfirmedOrder(data: newOrderConfirmed) {
-    orderConfirmed(data)
+    // orderConfirmed(data)
+
+    console.log(data)
   }
 
   return (
@@ -69,7 +77,12 @@ export function Checkout() {
               onSubmit={handleSubmit(handleConfirmedOrder)}
               action="/sucess"
             >
-              <CEPForm placeholder="CEP" min={8} {...register('cep')} />
+              <CEPForm
+                placeholder="CEP"
+                min={8}
+                {...register('cep')}
+                required
+              />
               <RuaForm
                 placeholder="Rua"
                 autoComplete="true"

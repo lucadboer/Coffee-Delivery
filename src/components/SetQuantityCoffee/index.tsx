@@ -1,35 +1,25 @@
-import React, { useState } from 'react'
 import { Minus, Plus } from 'phosphor-react'
 import { QuantityContainer } from './styles'
 
-export function SetQuantityCoffee() {
-  const [quantityCoffee, setQuantityCoffee] = useState(1)
+interface QuantityProps {
+  quantity: number
+  onIncrease: () => void
+  onDecrease: () => void
+}
 
+export function SetQuantityCoffee({
+  quantity,
+  onDecrease,
+  onIncrease,
+}: QuantityProps) {
   return (
     <div>
       <QuantityContainer>
-        <button
-          type="button"
-          onClick={() => {
-            setQuantityCoffee((state) => {
-              if (quantityCoffee > 1) {
-                return state - 1
-              }
-              return state
-            })
-          }}
-        >
+        <button type="button" onClick={onDecrease}>
           <Minus size={14} />
         </button>
-        <input type="number" value={quantityCoffee} name="quantity" />
-        <button
-          type="button"
-          onClick={() => {
-            setQuantityCoffee((state) => {
-              return state + 1
-            })
-          }}
-        >
+        <input type="number" value={quantity} name="quantity" />
+        <button type="button" onClick={onIncrease}>
           <Plus size={14} />
         </button>
       </QuantityContainer>

@@ -3,6 +3,7 @@ import { CoffeeCardContainer, FooterCard } from './styles'
 import { SetQuantityCoffee } from '../../../../components/SetQuantityCoffee'
 import { formatMoney } from '../../../../utils/formatMoney'
 import { useCart } from '../../../../hooks/useCart'
+import { useState } from 'react'
 // import { CartContext, Coffee } from '../../../../context/CartContext'
 
 export interface Coffee {
@@ -20,15 +21,35 @@ interface CoffeeProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
+  const [quantity, setQuantity] = useState(1)
+
   const formattedPrice = formatMoney(coffee.price)
 
   const { addNewCoffeeToCart } = useCart()
+
+  function handleIncrease() {
+    setQuantity((state) => {
+      if (quantity >= 1) {
+        return state + 1
+      }
+      return state
+    })
+  }
+
+  function handleDecrease() {
+    setQuantity((state) => {
+      if (quantity !== 1) {
+        return state - 1
+      }
+      return state
+    })
+  }
 
   function handleAddNewCoffeeToCart() {
     event?.preventDefault()
     const coffeeToAdd = {
       ...coffee,
-      quantity: 1,
+      quantity,
     }
     addNewCoffeeToCart(coffeeToAdd)
   }
@@ -38,9 +59,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
       <img src={`/coffees/${coffee.photo}.svg`} />
       <ul>
         {coffee.categories.map((categorie) => {
-          return (
-            <li key={`${coffee.categories}${coffee.photo}`}>{categorie}</li>
-          )
+          return <li key={`${coffee.id}${categorie}`}>{categorie}</li>
         })}
       </ul>
       <h3>{coffee.name}</h3>
@@ -51,7 +70,11 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
           <span>{formattedPrice}</span>
         </span>
         <form>
-          <SetQuantityCoffee />
+          <SetQuantityCoffee
+            quantity={quantity}
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+          />
 
           <button type="submit" onClick={handleAddNewCoffeeToCart}>
             <ShoppingCartSimple size={20} weight="fill" />

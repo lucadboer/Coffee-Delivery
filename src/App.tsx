@@ -12,9 +12,7 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <CartContextProvider>
-          <OrderAddressContextProvider>
-            <Router />
-          </OrderAddressContextProvider>
+          <Router />
         </CartContextProvider>
       </BrowserRouter>
       <GlobalStyles />

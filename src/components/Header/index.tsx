@@ -1,12 +1,12 @@
 import { ShoppingCart, MapPin } from 'phosphor-react'
-import { useContext } from 'react'
 
 import logo from '../../assets/Logo.svg'
-import { CartContext } from '../../context/CartContext'
+
+import { useCart } from '../../hooks/useCart'
 import { HeaderContainer } from './styles'
 
 export function Header() {
-  const { quantityItemsOnCart } = useContext(CartContext)
+  const { cartQuantity } = useCart()
 
   return (
     <HeaderContainer>
@@ -20,7 +20,7 @@ export function Header() {
         </span>
         <a href="/checkout">
           <ShoppingCart weight="fill" size={20} />
-          {quantityItemsOnCart ? <span>{quantityItemsOnCart}</span> : null}
+          {cartQuantity ? <span>{cartQuantity}</span> : null}
         </a>
       </nav>
     </HeaderContainer>
