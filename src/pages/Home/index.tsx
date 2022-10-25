@@ -1,12 +1,10 @@
 import cup from '../../assets/Cup.svg'
-import items from '../../assets/items.svg'
+import itemsDecoration from '../../assets/items.svg'
 import { CoffeesContainer, Containers, IntroContainer } from './styles'
 import { coffees } from '../../data/coffeesData'
 import { CoffeeCard } from './components/Coffee'
-import { useCart } from '../../hooks/useCart'
 
 export function Home() {
-  const { cartItems } = useCart()
   return (
     <div>
       <IntroContainer>
@@ -17,7 +15,7 @@ export function Home() {
               Com o Coffee Delivery você recebe seu café onde estiver, a
               qualquer hora!
             </p>
-            <img src={items} alt="" />
+            <img src={itemsDecoration} alt="" />
           </div>
         </section>
         <img src={cup} alt="" />
