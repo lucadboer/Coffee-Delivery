@@ -64,7 +64,7 @@ export function Sucess() {
               <CurrencyDollar size={16} />
               <div>
                 <p>Pagamento na entrega</p>
-                <h4>Cartão de crédito</h4>
+                <h4>{state.payment}</h4>
               </div>
             </OrderPaymentContainer>
           </OrderInformationContainer>

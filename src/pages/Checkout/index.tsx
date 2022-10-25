@@ -19,6 +19,7 @@ import * as zod from 'zod'
 import { CoffeeSelected } from './Components/CoffeesSelected'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../../hooks/useCart'
+import { useState } from 'react'
 
 export interface OrderAddressType {
   road: string
@@ -26,6 +27,7 @@ export interface OrderAddressType {
   district: string
   city: string
   state: string
+  payment: string
 }
 
 // interface ErrorsTypes {
@@ -47,6 +49,8 @@ const newOrderFormValidationSchemma = zod.object({
 })
 
 export function Checkout() {
+  const [paymentType, setPaymentType] = useState('')
+
   const { register, handleSubmit } = useForm({
     resolver: zodResolver(newOrderFormValidationSchemma),
     defaultValues: {
@@ -57,6 +61,7 @@ export function Checkout() {
       district: '',
       city: '',
       state: '',
+      payment: '',
     },
   })
 
@@ -75,6 +80,8 @@ export function Checkout() {
 
     cleanCart()
   }
+
+  console.log(paymentType)
 
   return (
     <div>
@@ -126,14 +133,26 @@ export function Checkout() {
             </span>
 
             <PaymentsMethods>
-              <ToggleGroup.Root type="single">
-                <ToggleGroup.Item value="credit" /* {...register('payment')} */>
+              <ToggleGroup.Root
+                type="single"
+                value={paymentType}
+                onValueChange={(payment) => {
+                  if (payment) setPaymentType(payment)
+                }}
+              >
+                <ToggleGroup.Item
+                  value="Cartão de Crédito"
+                  {...register('payment')}
+                >
                   <CreditCard size={16} /> Cartão de Crédito
                 </ToggleGroup.Item>
-                <ToggleGroup.Item value="debbit">
+                <ToggleGroup.Item
+                  value="Cartão de Débito"
+                  {...register('payment')}
+                >
                   <CreditCard size={16} /> Cartão de Débito
                 </ToggleGroup.Item>
-                <ToggleGroup.Item value="money">
+                <ToggleGroup.Item value="Dinheiro" {...register('payment')}>
                   <Money size={16} /> Dinheiro
                 </ToggleGroup.Item>
               </ToggleGroup.Root>
