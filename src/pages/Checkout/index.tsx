@@ -28,13 +28,13 @@ export interface OrderAddressType {
   state: string
 }
 
-interface ErrorsTypes {
-  errors: {
-    [key: string]: {
-      message: string
-    }
-  }
-}
+// interface ErrorsTypes {
+//   errors: {
+//     [key: string]: {
+//       message: string
+//     }
+//   }
+// }
 
 const newOrderFormValidationSchemma = zod.object({
   cep: zod.string().min(8, 'Informe o CEP').max(10),
@@ -47,7 +47,7 @@ const newOrderFormValidationSchemma = zod.object({
 })
 
 export function Checkout() {
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: zodResolver(newOrderFormValidationSchemma),
     defaultValues: {
       cep: '',
