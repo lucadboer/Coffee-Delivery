@@ -1,7 +1,8 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import delivery from '../../assets/Delivery.svg'
-import { OrderAddressContext } from '../../context/OrderAddressContext'
+import { OrderAddressType } from '../Checkout'
 import {
   OrderAddressContainer,
   OrderInformationContainer,
@@ -10,12 +11,22 @@ import {
   SucessContainer,
 } from './styles'
 
+interface LocationType {
+  state: OrderAddressType
+}
+
 export function Sucess() {
-  const { orderConfirmed } = useContext(OrderAddressContext)
+  const { state } = useLocation() as unknown as LocationType
+
+  const navigate = useNavigate()
 
   useEffect(() => {
-    orderConfirmed()
+    if (!state) {
+      navigate('/')
+    }
   }, [])
+
+  if (!state) return <></>
 
   return (
     <div>
@@ -30,9 +41,14 @@ export function Sucess() {
               <MapPin size={16} />
               <div>
                 <p>
-                  Entrega em <span>Rua João Daniel Martinelli, 102</span>
+                  Entrega em{' '}
+                  <span>
+                    {state.road}, {state.number}
+                  </span>
                 </p>
-                <p>Farrapos - Porto Alegre, RS</p>
+                <p>
+                  {state.district} - {state.city}, {state.state}
+                </p>
               </div>
             </OrderAddressContainer>
 

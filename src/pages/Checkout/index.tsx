@@ -17,6 +17,16 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
 import { CoffeeSelected } from './Components/CoffeesSelected'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../../hooks/useCart'
+
+export interface OrderAddressType {
+  road: string
+  number: string
+  district: string
+  city: string
+  state: string
+}
 
 interface ErrorsTypes {
   errors: {
@@ -50,14 +60,20 @@ export function Checkout() {
     },
   })
 
-  const { errors } = formState as unknown as ErrorsTypes
+  // const { errors } = formState as unknown as ErrorsTypes
 
   type newOrderConfirmed = zod.infer<typeof newOrderFormValidationSchemma>
 
-  function handleConfirmedOrder(data: newOrderConfirmed) {
-    // orderConfirmed(data)
+  const navigate = useNavigate()
 
-    console.log(data)
+  const { cleanCart } = useCart()
+
+  function handleConfirmedOrder(data: newOrderConfirmed) {
+    navigate('/sucess', {
+      state: data,
+    })
+
+    cleanCart()
   }
 
   return (

@@ -16,13 +16,14 @@ export interface CartItem extends Coffee {
 interface CartContextTypes {
   cartItems: CartItem[]
   cartQuantity: number
+  cartPriceItemsTotal: number
   addNewCoffeeToCart: (coffee: CartItem) => void
   changeCartItemQuantity: (
     itemID: number,
     type: 'Increase' | 'Decrease',
   ) => void
   removeItemInCart: (itemID: number) => void
-  cartPriceItemsTotal: number
+  cleanCart: () => void
 }
 
 interface CartContextProviderProps {
@@ -101,6 +102,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(newCart)
   }
 
+  function cleanCart() {
+    setCartItems([])
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -110,6 +115,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         changeCartItemQuantity,
         removeItemInCart,
         cartPriceItemsTotal,
+        cleanCart,
       }}
     >
       {children}
