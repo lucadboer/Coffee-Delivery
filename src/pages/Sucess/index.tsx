@@ -2,6 +2,7 @@ import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import delivery from '../../assets/Delivery.svg'
+import { useCart } from '../../hooks/useCart'
 import { OrderAddressType } from '../Checkout'
 import {
   OrderAddressContainer,
@@ -16,6 +17,7 @@ interface LocationType {
 }
 
 export function Sucess() {
+  const { typePayment } = useCart()
   const { state } = useLocation() as unknown as LocationType
 
   const navigate = useNavigate()
@@ -64,7 +66,7 @@ export function Sucess() {
               <CurrencyDollar size={16} />
               <div>
                 <p>Pagamento na entrega</p>
-                <h4>{state.payment}</h4>
+                <h4>{typePayment}</h4>
               </div>
             </OrderPaymentContainer>
           </OrderInformationContainer>

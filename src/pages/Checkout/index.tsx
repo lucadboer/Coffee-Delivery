@@ -46,10 +46,13 @@ const newOrderFormValidationSchemma = zod.object({
   district: zod.string().min(3).max(20),
   city: zod.string().min(3).max(15),
   state: zod.string().min(2).max(30),
+  payment: zod.string(),
 })
 
 export function Checkout() {
   const [paymentType, setPaymentType] = useState('')
+
+  const { changePaymentType } = useCart()
 
   const { register, handleSubmit } = useForm({
     resolver: zodResolver(newOrderFormValidationSchemma),
@@ -74,14 +77,14 @@ export function Checkout() {
   const { cleanCart } = useCart()
 
   function handleConfirmedOrder(data: newOrderConfirmed) {
+    changePaymentType(paymentType)
+
     navigate('/sucess', {
       state: data,
     })
 
     cleanCart()
   }
-
-  console.log(paymentType)
 
   return (
     <div>
@@ -110,16 +113,21 @@ export function Checkout() {
                 placeholder="Rua"
                 autoComplete="true"
                 {...register('road')}
+                required
               />
               <FormNumberComplement>
-                <input placeholder="Número" {...register('number')} />
+                <input placeholder="Número" {...register('number')} required />
                 <input placeholder="Complemento" {...register('Complement')} />
               </FormNumberComplement>
 
               <FormAddressCityState>
-                <input placeholder="Bairro" {...register('district')} />
-                <input placeholder="Cidade" {...register('city')} />
-                <input placeholder="UF" {...register('state')} />
+                <input
+                  placeholder="Bairro"
+                  {...register('district')}
+                  required
+                />
+                <input placeholder="Cidade" {...register('city')} required />
+                <input placeholder="UF" {...register('state')} required />
               </FormAddressCityState>
             </form>
           </AddressContainer>
@@ -138,19 +146,14 @@ export function Checkout() {
                 onValueChange={(payment) => {
                   if (payment) setPaymentType(payment)
                 }}
-                {...register('payment')}
               >
-                <ToggleGroup.Item
-                  value="Cartão de Crédito"
-                >
+                <ToggleGroup.Item value="Cartão de Crédito">
                   <CreditCard size={16} /> Cartão de Crédito
                 </ToggleGroup.Item>
-                <ToggleGroup.Item
-                  value="Cartão de Débito"
-                >
+                <ToggleGroup.Item value="Cartão de Débito">
                   <CreditCard size={16} /> Cartão de Débito
                 </ToggleGroup.Item>
-                <ToggleGroup.Item value="Dinheiro" >
+                <ToggleGroup.Item value="Dinheiro">
                   <Money size={16} /> Dinheiro
                 </ToggleGroup.Item>
               </ToggleGroup.Root>

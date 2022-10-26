@@ -164,8 +164,8 @@ export const PaymentsMethods = styled.div`
       &:hover {
         background-color: ${(props) => props.theme['base-hover']};
       }
-      
-      &[data-state=on] {
+
+      &[data-state='on'] {
         background-color: ${(props) => props.theme['purple-light']};
       }
 

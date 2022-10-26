@@ -17,6 +17,7 @@ interface CartContextTypes {
   cartItems: CartItem[]
   cartQuantity: number
   cartPriceItemsTotal: number
+  typePayment: string
   addNewCoffeeToCart: (coffee: CartItem) => void
   changeCartItemQuantity: (
     itemID: number,
@@ -24,6 +25,7 @@ interface CartContextTypes {
   ) => void
   removeItemInCart: (itemID: number) => void
   cleanCart: () => void
+  changePaymentType: (type: string) => void
 }
 
 interface CartContextProviderProps {
@@ -35,6 +37,7 @@ const COFFEE_ITEMS_STORAGE_KEY = 'coffeeDelivery:cartItems'
 export const CartContext = createContext({} as CartContextTypes)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
+  const [typePayment, setTypePayment] = useState('')
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY)
 
@@ -53,6 +56,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const cartPriceItemsTotal = cartItems.reduce((total, cartItem) => {
     return total + cartItem.price * cartItem.quantity
   }, 0)
+
+  function changePaymentType(type: string) {
+    setTypePayment(type)
+  }
 
   function addNewCoffeeToCart(coffee: CartItem) {
     const coffeeAlreadyExistsInCart = cartItems.findIndex(
@@ -116,6 +123,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         removeItemInCart,
         cartPriceItemsTotal,
         cleanCart,
+        changePaymentType,
+        typePayment,
       }}
     >
       {children}

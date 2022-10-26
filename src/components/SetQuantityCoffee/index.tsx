@@ -18,7 +18,7 @@ export function SetQuantityCoffee({
         <button type="button" onClick={onDecrease}>
           <Minus size={14} />
         </button>
-        <input type="number" value={quantity} name="quantity" />
+        <input type="number" disabled value={quantity} name="quantity" />
         <button type="button" onClick={onIncrease}>
           <Plus size={14} />
         </button>
