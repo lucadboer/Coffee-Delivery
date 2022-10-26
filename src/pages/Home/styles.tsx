@@ -10,36 +10,40 @@ const Container = styled.div`
 
 export const IntroContainer = styled(Container)`
   background: url(${background});
-  gap: 3.5rem;
   padding: 5.875rem 10rem 6.75rem 10rem;
+`
 
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    h1 {
-      font-family: 'Baloo 2';
-      line-height: 1.3;
-      font-weight: bolder;
-      font-size: 2.8rem;
-      color: ${(props) => props.theme['base-title']};
-    }
-
-    p {
-      font-family: ${(props) => props.theme.text};
-      font-size: 1.25rem;
-      color: ${(props) => props.theme['base-text']};
-      line-height: 1.3;
-    }
-
-    img {
-      width: 36rem;
-      margin-top: 3.5rem;
-    }
+export const IntroText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  h1 {
+    font-family: 'Baloo 2';
+    line-height: 1.3;
+    font-weight: bolder;
+    font-size: 3rem;
+    color: ${(props) => props.theme['base-title']};
   }
-  img {
-    width: 27.5rem;
+
+  p {
+    font-family: ${(props) => props.theme.text};
+    font-size: 1.5rem;
+    color: ${(props) => props.theme['base-text']};
+    line-height: 1.3;
   }
+`
+
+export const BenefitsContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  row-gap: 1.25rem;
+  column-gap: -10rem;
+  margin-top: 4.125rem;
+  color: ${(props) => props.theme['base-text']};
+  font-family: 'Roboto';
+  font-size: 1rem;
+  font-weight: 500;
 `
 
 export const CoffeesContainer = styled(Container)`
