@@ -135,24 +135,22 @@ export function Checkout() {
             <PaymentsMethods>
               <ToggleGroup.Root
                 type="single"
-                value={paymentType}
                 onValueChange={(payment) => {
                   if (payment) setPaymentType(payment)
                 }}
+                {...register('payment')}
               >
                 <ToggleGroup.Item
                   value="Cartão de Crédito"
-                  {...register('payment')}
                 >
                   <CreditCard size={16} /> Cartão de Crédito
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value="Cartão de Débito"
-                  {...register('payment')}
                 >
                   <CreditCard size={16} /> Cartão de Débito
                 </ToggleGroup.Item>
-                <ToggleGroup.Item value="Dinheiro" {...register('payment')}>
+                <ToggleGroup.Item value="Dinheiro" >
                   <Money size={16} /> Dinheiro
                 </ToggleGroup.Item>
               </ToggleGroup.Root>
