@@ -16,7 +16,7 @@ interface LocationType {
   state: OrderAddressType
 }
 
-export function Sucess() {
+export function OrderSucess() {
   const { typePayment } = useCart()
   const { state } = useLocation() as unknown as LocationType
 

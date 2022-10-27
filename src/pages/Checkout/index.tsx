@@ -49,7 +49,7 @@ const newOrderFormValidationSchemma = zod.object({
   payment: zod.string(),
 })
 
-export function Checkout() {
+export function CompleteOrderPage() {
   const [paymentType, setPaymentType] = useState('')
 
   const { changePaymentType } = useCart()
