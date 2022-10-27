@@ -63,13 +63,14 @@ export const HeaderContainer = styled.div`
     }
   }
   @media (max-width: 768px) {
-    margin-top: 1rem;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: -0.5rem;
+    align-items: center;
+    gap: 7rem;
+    justify-content: space-around;
 
     nav span {
+      width: max-content;
       font-size: 0.75rem;
     }
   }

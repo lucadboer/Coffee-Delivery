@@ -53,6 +53,7 @@ export const IntroText = styled.div`
   }
 
   @media (max-width: 768px) {
+    margin-top: -2rem;
     flex-direction: column;
 
     h1 {
@@ -79,8 +80,8 @@ export const BenefitsContainer = styled.div`
 
   @media (max-width: 768px) {
     margin-top: 2rem;
-    grid-template-columns: 0.75fr 0.75fr;
-    font-size: 0.75rem;
+    grid-template-columns: 1fr;
+    font-size: 1rem;
     row-gap: 1rem;
   }
 `
