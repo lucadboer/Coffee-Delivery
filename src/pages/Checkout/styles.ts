@@ -214,6 +214,7 @@ export const PaymentContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: -3rem;
   }
 `
 
@@ -257,10 +258,11 @@ export const PaymentsMethods = styled.div`
     div {
       display: flex;
       flex-direction: column;
-      width: 13rem;
+      width: 15rem;
 
       button {
         width: 100%;
+        font-size: 1.05rem;
       }
     }
   }

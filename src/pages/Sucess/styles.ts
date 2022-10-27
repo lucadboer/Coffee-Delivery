@@ -29,9 +29,11 @@ export const SucessContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 5rem 4rem;
+    padding: 5rem 3rem;
 
     header {
+      display: flex;
+      align-items: center;
       h1 {
         font-size: 1.7rem;
       }
