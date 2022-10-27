@@ -27,6 +27,52 @@ export const SucessContainer = styled.div`
     display: flex;
     gap: 6.375rem;
   }
+
+  @media (max-width: 768px) {
+    padding: 5rem 4rem;
+
+    header {
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      span {
+        font-size: 1rem;
+      }
+      margin-top: -3rem;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 20rem;
+        margin: 0 auto;
+        margin-top: -3rem;
+      }
+    }
+  }
+`
+
+export const OrderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+
+  svg {
+    margin-right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: white;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 `
 
 export const OrderInformationContainer = styled.div`
@@ -56,26 +102,14 @@ export const OrderInformationContainer = styled.div`
     );
     border-radius: 6px 36px;
   }
-`
 
-export const OrderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-
-  svg {
-    margin-right: 0.75rem;
-    width: 2rem;
-    height: 2rem;
-    padding: 0.5rem;
-    border-radius: 50%;
-    color: white;
-  }
-
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    width: 90%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 `
 
