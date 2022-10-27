@@ -162,7 +162,7 @@ export function CompleteOrderPage() {
         </div>
 
         <div>
-          <h2>Cafés selecionados</h2>
+          <h2 className="titleCoffeesContainer">Cafés selecionados</h2>
 
           <div>
             <CoffeeSelected />

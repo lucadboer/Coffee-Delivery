@@ -14,6 +14,25 @@ export const CheckoutContainer = styled.div`
     color: ${(props) => props.theme['base-subtitle']};
     margin-top: 2.5rem;
   }
+
+  @media (max-width: 768px) {
+    width: 30rem;
+
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    .titleCoffeesContainer {
+      padding: 0 2rem;
+    }
+
+    h2 {
+      padding: 0 3rem;
+    }
+  }
 `
 
 export const AddressContainer = styled.div`
@@ -45,6 +64,22 @@ export const AddressContainer = styled.div`
       font-size: 0.75rem;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 30rem;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    overflow: hidden;
+
+    form {
+      width: 75%;
+      font-size: 1rem;
+    }
+  }
 `
 
 export const HeaderAddress = styled.div`
@@ -71,6 +106,14 @@ export const HeaderAddress = styled.div`
     line-height: 130%;
     color: ${(props) => props.theme.text};
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
 `
 
 export const CEPForm = styled.input`
@@ -79,6 +122,9 @@ export const CEPForm = styled.input`
 
 export const RuaForm = styled.input`
   width: 35rem;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `
 
 export const FormNumberComplement = styled.div`
@@ -89,11 +135,19 @@ export const FormNumberComplement = styled.div`
   input:last-child {
     width: 21.75rem;
   }
+
+  @media (max-width: 768px) {
+    input {
+      width: 5rem;
+    }
+    input:last-child {
+      width: 17.8rem;
+    }
+  }
 `
 
 export const FormAddressCityState = styled.div`
   display: flex;
-  align-items: center;
   gap: 0.75rem;
 
   input:nth-child(2) {
@@ -102,6 +156,22 @@ export const FormAddressCityState = styled.div`
 
   input:last-child {
     width: 3.75rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    input:nth-child(1) {
+      width: 22rem;
+    }
+
+    input:nth-child(2) {
+      width: 22rem;
+    }
+
+    input:last-child {
+      width: 3.75rem;
+    }
   }
 `
 
@@ -137,6 +207,14 @@ export const PaymentContainer = styled.div`
     line-height: 130%;
     color: ${(props) => props.theme.text};
   }
+
+  @media (max-width: 768px) {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 export const PaymentsMethods = styled.div`
@@ -171,6 +249,18 @@ export const PaymentsMethods = styled.div`
 
       svg {
         color: ${(props) => props.theme.purple};
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 13rem;
+
+      button {
+        width: 100%;
       }
     }
   }
