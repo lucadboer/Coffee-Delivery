@@ -62,4 +62,15 @@ export const HeaderContainer = styled.div`
       }
     }
   }
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: -0.5rem;
+
+    nav span {
+      font-size: 0.75rem;
+    }
+  }
 `

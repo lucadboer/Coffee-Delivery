@@ -6,11 +6,31 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: flex-start;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
 `
 
 export const IntroContainer = styled(Container)`
   background: url(${background});
   padding: 5.875rem 10rem 6.75rem 10rem;
+
+  @media (max-width: 768px) {
+    padding: 2.875rem 1rem 3rem 1rem;
+
+    img {
+      width: 17rem;
+      margin-top: 3rem;
+      align-self: center;
+    }
+  }
 `
 
 export const IntroText = styled.div`
@@ -31,6 +51,18 @@ export const IntroText = styled.div`
     color: ${(props) => props.theme['base-text']};
     line-height: 1.3;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
 `
 
 export const BenefitsContainer = styled.div`
@@ -44,6 +76,13 @@ export const BenefitsContainer = styled.div`
   font-family: 'Roboto';
   font-size: 1rem;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+    grid-template-columns: 0.75fr 0.75fr;
+    font-size: 0.75rem;
+    row-gap: 1rem;
+  }
 `
 
 export const CoffeesContainer = styled(Container)`
@@ -59,10 +98,23 @@ export const CoffeesContainer = styled(Container)`
     line-height: 130%;
     color: ${(props) => props.theme['base-subtitle']};
   }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      font-size: 1.7rem;
+      align-self: flex-start;
+    }
+  }
 `
 
 export const Containers = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
 `
