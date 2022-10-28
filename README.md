@@ -1,10 +1,8 @@
 # Coffee Delivery
 
-<span align="center">
-    <img width="600" src="./.github/preview1.png">
-    <img width="600" src="./.github/preview2.png">
-    <img width="600" src="./.github/preview3.png">
-</span>
+    <img width="600" align="center" src="./.github/preview1.png">
+    <img width="600" align="center" src="./.github/preview2.png">
+    <img width="600" align="center" src="./.github/preview3.png">
     
 </p>
 
