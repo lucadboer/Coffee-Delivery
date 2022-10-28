@@ -115,7 +115,5 @@ export const CoffeesContainer = styled(Container)`
 export const Containers = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   gap: 2rem;
 `
