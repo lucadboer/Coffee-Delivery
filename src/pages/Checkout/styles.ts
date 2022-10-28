@@ -140,7 +140,7 @@ export const FormNumberComplement = styled.div`
     input {
       width: 5rem;
     }
-    input:last-child {
+    input:last-child::after {
       width: 17.8rem;
     }
   }

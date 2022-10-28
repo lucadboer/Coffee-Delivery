@@ -131,7 +131,10 @@ export function CompleteOrderPage() {
               />
               <FormNumberComplement>
                 <input placeholder="Número" {...register('number')} required />
-                <input placeholder="Complemento" {...register('Complement')} />
+                <input
+                  placeholder="Complemento (opcional)"
+                  {...register('Complement')}
+                />
               </FormNumberComplement>
 
               <FormAddressCityState>
