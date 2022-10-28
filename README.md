@@ -7,12 +7,12 @@
 
 > Trilha Ignite
 
-Segunda desafio desenvolvido na trilha Ignite da Rocketseat com ReactJS, Styled-Components e TypeScript. A ideia foi criar uma aplicação de Delivery onde a pessoa poderá escolher quais tipos diferentes de cafés quer receber direto na sua casa, com as quantidades de cada café, o endereço e a forma de pagamento.
-Além de todos os fundamentos do React, foi utilizado ContextAPI para compartilhar os dados entre as rotas, um pouco de hooks, e para a estilização foi aplicado o Styled-Components. Também fui um pouco além, já que não fazia parte do desafio, e deixei a aplicação responsiva para o mobile.
+Segunda desafio desenvolvido na trilha Ignite da Rocketseat com ReactJS, Styled-Components e TypeScript. A ideia foi criar uma aplicação de Delivery de cafés
+Além de todos os fundamentos do React, foi utilizado ContextAPI para compartilhar os dados entre as rotas, um pouco de hooks, e para a estilização foi aplicado o Styled-Components.
 
 
-Second challenge developed on Rocketseat's Ignite track with ReactJS, Styled-Components and TypeScript. The idea was to create a Delivery application where the person can choose which different types of coffees they want to receive directly at their home, with the quantities of each coffee, the address and the payment method.
-In addition to all React fundamentals, ContextAPI was used to share data between routes, a little hooks, and Styled-Components was applied for styling. I also went a little further, as it was not part of the challenge, and left the mobile app responsive.
+Second challenge developed on Rocketseat's Ignite track with ReactJS, Styled-Components and TypeScript. The idea was to create a coffee delivery application
+In addition to all the React fundamentals, the ContextAPI was used to share the data between the routes, some hooks, and for the styling it was applied in Styled-Components.
 
 ## 🛠 Technologies
 
