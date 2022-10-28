@@ -1,10 +1,10 @@
 # Coffee Delivery
-<p>
+<span>
     <img width="600" align="center" src="./.github/preview1.png">
     <img width="600" align="center" src="./.github/preview2.png">
     <img width="600" align="center" src="./.github/preview3.png">
     
-</p>
+</span>
 
 > Trilha Ignite
 
