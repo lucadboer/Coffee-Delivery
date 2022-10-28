@@ -116,4 +116,8 @@ export const Containers = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `
