@@ -69,14 +69,14 @@ export const IntroText = styled.div`
 export const BenefitsContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1.8fr;
+  grid-template-columns: 1fr 1fr;
   row-gap: 1.25rem;
-  column-gap: -10rem;
+
   margin-top: 4.125rem;
   color: ${(props) => props.theme['base-text']};
   font-family: 'Roboto';
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
 
   @media (max-width: 768px) {
     margin-top: 2rem;
@@ -113,7 +113,8 @@ export const CoffeesContainer = styled(Container)`
 `
 
 export const Containers = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   flex-wrap: wrap;
   gap: 2rem;
 
