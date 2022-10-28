@@ -19,7 +19,7 @@ import * as zod from 'zod'
 import { CoffeeSelected } from './Components/CoffeesSelected'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../../hooks/useCart'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export interface OrderAddressType {
   road: string
@@ -72,11 +72,25 @@ export function CompleteOrderPage() {
 
   type newOrderConfirmed = zod.infer<typeof newOrderFormValidationSchemma>
 
+  useEffect(() => {
+    changePaymentType('')
+    console.log(paymentType)
+  }, [])
+
   const navigate = useNavigate()
 
-  const { cleanCart } = useCart()
+  const { cleanCart, cartItems } = useCart()
 
   function handleConfirmedOrder(data: newOrderConfirmed) {
+    if (cartItems.length <= 0) {
+      return cartItems
+    }
+
+    if (paymentType === '') {
+      alert('Selecione a forma de pagamento...')
+      return paymentType
+    }
+
     changePaymentType(paymentType)
 
     navigate('/sucess', {

@@ -1,10 +1,16 @@
+import { useNavigate } from 'react-router-dom'
+import swal from 'sweetalert'
+
 import { useCart } from '../../../../hooks/useCart'
 import { formatMoney } from '../../../../utils/formatMoney'
 import { Coffee } from '../Coffee'
+
 import { CoffeeOnCartContainer } from './styles'
 
 export function CoffeeSelected() {
   const { cartPriceItemsTotal, cartQuantity, cartItems } = useCart()
+
+  const navigate = useNavigate()
 
   const DELIVERY_PRICE = 3.5
 
@@ -13,6 +19,22 @@ export function CoffeeSelected() {
   const formattedPriceItemsTotal = formatMoney(cartPriceItemsTotal)
   const formattedCartTotal = formatMoney(cartTotal)
   const formattedDeliveryPrice = formatMoney(DELIVERY_PRICE)
+
+  function cartIsEmpity() {
+    if (cartQuantity <= 0) {
+      swal({
+        title: 'Seu carrinho está vazio!',
+        text: 'Deseja adicionar items no carrinho na nossa página de cafés?',
+        icon: '',
+        buttons: ['Não', 'Ir para a página'],
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          navigate('/')
+        }
+      })
+    }
+  }
 
   return (
     <div>
@@ -33,7 +55,7 @@ export function CoffeeSelected() {
             </h3>
           </div>
 
-          <button form="address" disabled={cartQuantity <= 0}>
+          <button form="address" onClick={cartIsEmpity}>
             Confirmar Pedido
           </button>
         </footer>
