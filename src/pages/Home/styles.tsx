@@ -69,7 +69,7 @@ export const IntroText = styled.div`
 export const BenefitsContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2.5fr;
+  grid-template-columns: 1fr 1.8fr;
   row-gap: 1.25rem;
   column-gap: -10rem;
   margin-top: 4.125rem;
